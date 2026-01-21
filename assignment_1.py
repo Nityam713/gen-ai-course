@@ -63,3 +63,68 @@ if removed is None:
 
 print(price_dict)
 
+# Average price of all products
+
+total_price = sum(price_dict.values())
+avg_price = total_price / len(price_dict)
+print(avg_price)
+
+#OR
+
+total_price = 0
+
+for price in price_dict.values():
+    total_price += price
+
+#print(total_price)
+
+average_price = total_price / len(price_dict)
+print("Average_price",average_price)
+
+# Max and Min price product
+max_price_product = max(price_dict, key=price_dict.get)
+min_price_product = min(price_dict, key=price_dict.get)
+
+print(max_price_product, price_dict[max_price_product])
+print(min_price_product, price_dict[min_price_product])
+print(max_price_product, min_price_product)
+
+# Task 4: Combined Operations
+
+#print(products)
+#print(price_dict)
+#print(categories)
+
+# Catalog where each tuple is (product_name, price, category)
+catalog = []
+
+for i in range(len(products)):
+    product = products[i]
+    price = price_dict.get(product)
+    category = categories[i]
+    catalog.append((product, price, category))
+
+print(catalog)
+
+# Category_to_products dict
+category_to_products = {}
+for product, price, category in catalog:
+    if category not in category_to_products:
+        category_to_products[category] = []
+
+    category_to_products[category].append(product)
+
+print(category_to_products)
+
+# Category that has maximum number of products
+max_category = None
+max_count = 0
+
+for category, products in category_to_products.items():
+    if len(products) > max_count:
+        max_count = len(products)
+        max_category = category
+
+print("Category with maximum products:", max_category)
+print("Products:", category_to_products[max_category])
+
