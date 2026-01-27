@@ -136,8 +136,6 @@ while True:
 print("------------------------------------------")
 print("-----------------# Task 4-----------------")
 
-# Task 4: Loop Control with Conditions (break & continue)
-
 daily = [200, 150, 0, 400, 50, -1, 300]
 total_sales = 0
 
